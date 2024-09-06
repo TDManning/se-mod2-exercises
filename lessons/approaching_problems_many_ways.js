@@ -45,15 +45,47 @@ const ninetiesToys = [
 /* Round 1: forEach
 Solve the prompt using a forEach. You may not use any other iterator methods.
 */
-
+function findCheapToys() {
+    const cheapToys = [];
+    // console.log('ninetiesToy:', ninetiesToys)
+    ninetiesToys.forEach((toy) => {
+        if (toy.price < 20) {
+        // console.log('toy name:', toy.name)
+            cheapToys.push(toy.name);
+        }
+    })
+    return cheapToys;
+}
+console.log('final return:', findCheapToys());
 
 
 /* Round 2: filter and map
 Solve the prompt using a filter and map. You may not use any other iterator methods.
 */
-
+function findCheapToys() {
+    const cheapToys = ninetiesToys.filter((toy) => {
+        // console.log('toy price:', toy.price);
+        return toy.price < 20; 
+    });
+     // console.log(cheapToys)
+        let cheapToyNames = cheapToys.map((toy) => {
+            return toy.name;
+        });
+        return cheapToyNames
+    };
+console.log('final return:', findCheapToys(ninetiesToys));
 
 
 /* Round 3: reduce
-Solve the prompt using a reduce. You may not use any other iterator methods.
-*/
+Solve the prompt using a reduce. You may not use any other iterator methods.*/
+
+function findCheapToys() {
+    
+    const cheapToyNames = ninetiesToys.reduce((acc, toy) => { 
+        if (toy.price < 20) { 
+            acc.push(toy.name);
+    }
+    return acc }, []);
+    return cheapToyNames;
+}
+console.log('final return:', findCheapToys(ninetiesToys))
